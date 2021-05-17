@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Import head -->
+<%- include('../partials/head') %>
+
+<body>
+
+    <!-- Import navigation -->
+    <%- include('../partials/nav') %>
+
+    <div class="api__root">
+        <h2 class="api__title"> Welcome back <%= title.toLowerCase() %> </h2>
+        <p class="api__text">A simple <span style="color: crimson;">TO-DO</span> application.</p>
+        <p class="api__text">You can learn more about it on Github <a class="api__link"
+                href="" target="_blank">todo-web-app</a>.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/index.js"></script>
+</body>
+
+</html>

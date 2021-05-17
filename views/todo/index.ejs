@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Import head -->
+<%- include('../partials/head') %>
+
+<body>
+
+    <!-- Import navigation -->
+    <%- include('../partials/nav') %>
+    
+    <div class="api__root">
+        <h2 class="api__title">My Day</h2>
+        <span> Sunday, 25 April </span>
+        <p class="api__text">Start your day with solid goals</p>
+    </div>
+
+    <div class="api__app">
+        <form class="api__form" action="/todo" method="POST" autocomplete="off">
+
+            <% if (locals.messages) { %>
+                <div class="messages">
+                    <% Object.keys(messages).forEach((key) => { %>
+                    <% messages[key].forEach((message) => { %>
+                    <li class="list-errors"> <%= message %> <i class="fas fa-times" ></i> </li>
+                    <% }) %>
+                    <% }) %>
+                </div>
+            <% } %>
+
+            <div class="api__task">
+                <label for="nametodo">Add a task <span class="required">*</span></label>
+                <input type="text" name="nametodo" id="nametodo" class="api__input">
+            </div>
+            
+            <div class="api__button">
+                <button class="api__add">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="api__tasks">
+        <ul class="api__list">
+
+            <% todos.forEach(todo => { %>
+             
+                <li class="api__items2" style="list-style: none;">
+                    <span><%= todo.nametodo %></span>
+                    <div class='li__i'>
+                    <a href="/todo/<%= todo.id %>/edit" class="api__link" style="text-decoration: none;"> <i class="far fa-edit" style="color: rgb(58, 129, 58)"></i> </a>
+
+                    <!-- DELETE -->
+                    <form action="/todo/<%= todo.id %>?_method=DELETE" method="POST">
+                        <button class="btn__i" ><i class="far fa-trash-alt" style="color: rgb(202, 35, 35); padding: 0 10px;"></i></button>
+                        
+                    </form>
+                    </div>
+                </li>
+
+            <% }) %>
+
+        </ul>
+    </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="/index.js"></script>
+</body>
+
+</html>

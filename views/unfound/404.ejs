@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<body>
+
+    <%- include('../partials/nav') %>
+
+    <div class="api__root">
+        <h2 class="api__title"> Oops! Page not found. </h2>
+        <p class="api__text">The path or page <% let URL = current
+    URL = URL.substring(1)
+     %> <span class="reqUrl"> <%= URL %> </span> doesn't exist; however, it has been saved in our database. We
+            will look into it.
+        </p>
+    </div>
+</body>
+
+</html>

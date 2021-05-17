@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Import head -->
+<%- include('../partials/head') %>
+
+<body>
+
+    <!-- Import navigation -->
+    <%- include('../partials/nav') %>
+    
+    <div class="api__root">
+        <h2 class="api__title">All users</h2>
+        <span> Wednesday, April 28 </span>
+        <p class="api__text">Available on our site</p>
+    </div>
+
+    <div class="api__app">
+        <form class="api__form" action="/todo/<%= todo.id %>/edit?_method=PUT" method="POST" autocomplete="off">
+
+            <div class="api__task">
+                <label for="nametodo">Add a task <span class="required">*</span></label>
+                <input type="text" name="nametodo" id="nametodo" class="api__input" value="<%= todo.nametodo %>">
+            </div>
+            
+            <div class="api__button">
+                <button class="api__add">update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="/index.js"></script>
+</body>
+
+</html>
